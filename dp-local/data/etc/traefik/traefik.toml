@@ -29,11 +29,13 @@ defaultEntryPoints = ["http", "https"]
     OnHostRule = true
 [acme.httpChallenge]
     entryPoint = "http"
+    [[acme.domains]]
+        main = "beta.delivery-pars.ru"
+        sans = ["www.beta.delivery-pars.ru"]
 
 [docker]
     endpoint = "unix:///var/run/docker.sock"
     watch = true
-    domain = "delivery-parts.ru"
     network = "dp-proxy"
     exposedbydefault = true
 
