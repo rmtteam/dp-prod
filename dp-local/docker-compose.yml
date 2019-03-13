@@ -48,7 +48,6 @@ services:
             - "traefik.enable=false"            
 
     dp-worker:
-        build: ./images/php-fpm
         build: ./images/worker
         container_name: dp-worker
         restart: always
