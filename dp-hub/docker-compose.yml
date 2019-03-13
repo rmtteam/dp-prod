@@ -30,7 +30,7 @@ services:
             - "traefik.protocol=http"
 
     dp-php:
-        image: deliverypartsru/dp-php:latest
+        image: deliverypartsru/dp-php
         container_name: dp-php
         restart: always
         ports: 
@@ -44,7 +44,7 @@ services:
             - "traefik.enable=false"            
 
     dp-worker:
-        image: deliverypartsru/dp-worker:latest
+        image: deliverypartsru/dp-worker
         container_name: dp-worker
         restart: always
         ports:
