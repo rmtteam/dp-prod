@@ -27,8 +27,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         libmagickwand-dev \
         imagemagick \
         librabbitmq-dev \
-        htop \
-        mc \
     && apt-get clean
 
 # Image Magic
@@ -66,4 +64,4 @@ RUN docker-php-ext-install pdo_mysql \
     && docker-php-ext-install opcache \
     && docker-php-ext-install intl
 
-EXPOSE 9000    
+EXPOSE 9000
