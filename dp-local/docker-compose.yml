@@ -1,0 +1,84 @@
+version: '3'
+
+networks:
+    dp-proxy:
+        external: true
+    dp-internal:
+        external: false
+
+services:
+    dp-nginx:
+        build: ./images/nginx
+        container_name: dp-nginx
+        restart: always
+        image: dp-nginx
+        restart: always
+        ports:
+            - "8001:8001"
+        volumes:
+            - ./data/etc/nginx/conf.d:/etc/nginx/conf.d
+            - ./data/var/www:/var/www:rw
+            - ./data/var/log/nginx:/var/log/nginx:rw
+        links:
+            - dp-php
+        networks:
+            - dp-internal
+            - dp-proxy
+        labels:
+            - "traefik.enable=true"
+            - "traefik.backend=dp-nginx"
+            - "traefik.frontend.rule=Host:beta.delivery-parts.ru"
+            - "traefik.port=8001"
+            - "traefik.protocol=http"
+
+    dp-php:
+        build: ./images/php-fpm
+        container_name: dp-php
+        restart: always
+        image: dp-php
+        restart: always
+        ports: 
+            - "9000:9000"
+        volumes:
+            - ./data/var/www:/var/www:rw
+            - ./data/var/log/php-fpm/dp-php:/var/log:rw
+        networks:
+            - dp-internal
+        labels:
+            - "traefik.enable=false"            
+
+    dp-worker:
+        build: ./images/php-fpm
+        build: ./images/worker
+        container_name: dp-worker
+        restart: always
+        image: dp-worker
+        restart: always
+        ports:
+            - "9001:9001"
+        volumes:
+            - ./data/var/www:/var/www:rw
+            - ./data/var/log/supervisor:/var/log/supervisor:rw
+            - ./data/etc/supervisor:/etc/supervisor
+        networks:
+            - dp-internal
+        labels:
+            - "traefik.enable=false"
+
+    dp-traefik:
+        build: ./images/traefik
+        container_name: dp-traefik
+        restart: always
+        image: dp-traefik
+        ports:
+            - "8080:8080"
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./data/etc/traefik:/etc/traefik:rw
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            - dp-internal
+            - dp-proxy
+        labels:
+            - "traefik.enable=false"

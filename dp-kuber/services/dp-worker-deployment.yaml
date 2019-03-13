@@ -1,0 +1,46 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+    traefik.enable: "false"
+  creationTimestamp: null
+  labels:
+    io.kompose.service: dp-worker
+  name: dp-worker
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: dp-worker
+    spec:
+      containers:
+      - image: dp-worker
+        name: dp-worker
+        ports:
+        - containerPort: 9001
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/www
+          name: dp-worker-claim0
+        - mountPath: /var/log/supervisor
+          name: dp-worker-claim1
+        - mountPath: /etc/supervisor
+          name: dp-worker-claim2
+      restartPolicy: Always
+      volumes:
+      - name: dp-worker-claim0
+        persistentVolumeClaim:
+          claimName: dp-worker-claim0
+      - name: dp-worker-claim1
+        persistentVolumeClaim:
+          claimName: dp-worker-claim1
+      - name: dp-worker-claim2
+        persistentVolumeClaim:
+          claimName: dp-worker-claim2
+status: {}

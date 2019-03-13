@@ -1,0 +1,39 @@
+logLevel = "WARNING"
+
+defaultEntryPoints = ["http", "https"]
+
+[entryPoints]
+    [entryPoints.dashboard]
+            address = ":8080"
+        [entryPoints.dashboard.auth]
+        [entryPoints.dashboard.auth.basic]
+            users = ["admin:$apr1$/Xis/kZs$.9BV97V2dsMcX8gA5mmp10"]
+
+    [entryPoints.http]
+        address = ":80"
+    [entryPoints.http.redirect]
+        entryPoint = "https"
+    [entryPoints.https]
+        address = ":443"
+    [entryPoints.https.tls]
+
+[api]
+    entrypoint="dashboard"
+
+[retry]
+
+[acme]
+    email = "it@rmt.team"
+    storage = "acme.json"
+    entryPoint = "https"
+    OnHostRule = true
+[acme.httpChallenge]
+    entryPoint = "http"
+
+[docker]
+    endpoint = "unix:///var/run/docker.sock"
+    watch = true
+    domain = "delivery-parts.ru"
+    network = "dp-proxy"
+    exposedbydefault = true
+

@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+    traefik.enable: "false"
+  creationTimestamp: null
+  labels:
+    io.kompose.service: dp-php
+  name: dp-php
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: dp-php
+    spec:
+      containers:
+      - image: dp-php
+        name: dp-php
+        ports:
+        - containerPort: 9000
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/www
+          name: dp-php-claim0
+        - mountPath: /var/log
+          name: dp-php-claim1
+      restartPolicy: Always
+      volumes:
+      - name: dp-php-claim0
+        persistentVolumeClaim:
+          claimName: dp-php-claim0
+      - name: dp-php-claim1
+        persistentVolumeClaim:
+          claimName: dp-php-claim1
+status: {}
