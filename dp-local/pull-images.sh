@@ -1,7 +1,6 @@
 #!/bin/bash
 
 docker login \
-&& cd dp-local/ \
 #&& docker-compose build \
 && docker commit dp-nginx deliverypartsru/dp-nginx && docker push deliverypartsru/dp-nginx \
 && docker commit dp-php deliverypartsru/dp-php && docker push deliverypartsru/dp-php \
