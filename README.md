@@ -4,6 +4,6 @@ pull-images.sh - скрипт сборки images и публикации их �
 
 После git pull на хостовой тачке надо сделать
 
-<code>docker commit dp-nginx deliverypartsru/dp-nginx && docker push deliverypartsru/dp-nginx</code>
+<code>sudo chown root:root data/etc/traefik/acme.json && sudo chmod 600 data/etc/traefik/acme.json</code>
 
 Иначе не взлетит, но это не точно.
