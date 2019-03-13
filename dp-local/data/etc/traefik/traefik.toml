@@ -38,4 +38,3 @@ defaultEntryPoints = ["http", "https"]
     watch = true
     network = "dp-proxy"
     exposedbydefault = true
-
