@@ -13,7 +13,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
 
-#PHP
+#PHP-FPM
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
