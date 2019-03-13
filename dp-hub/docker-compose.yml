@@ -8,7 +8,7 @@ networks:
 
 services:
     dp-nginx:
-        image: deliverypartsru/dp-php
+        image: deliverypartsru/dp-nginx
         container_name: dp-nginx
         restart: always
         ports:
