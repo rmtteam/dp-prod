@@ -11,5 +11,3 @@ spec:
         storage: 2Gi
     accessModes:
         - ReadWriteMany
-    hostPath:
-        path: "/mnt/dp-data"

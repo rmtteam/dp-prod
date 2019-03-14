@@ -26,7 +26,7 @@ spec:
         resources: {}
         volumeMounts:
         - mountPath: /mnt/dp-data
-          name: dp-data        
+          name: dp-data
       restartPolicy: Always
       volumes:
       - name: dp-data

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: dp-prod
+  creationTimestamp: null
+  name: dp-data
+spec:
+  storageClassName: nfs-vm-storage
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
