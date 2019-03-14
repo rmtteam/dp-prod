@@ -1,11 +1,5 @@
 version: '3'
 
-networks:
-    dp-proxy:
-        external: true
-    dp-internal:
-        external: false
-
 services:
     dp-nginx:
         image: deliverypartsru/dp-nginx
@@ -13,17 +7,10 @@ services:
         restart: always
         ports:
             - "8001:8001"
+        volumes:
+            - ../dp-data/:/dp-data:rw
         links:
             - dp-php
-        networks:
-            - dp-internal
-            - dp-proxy
-        labels:
-            - "traefik.enable=true"
-            - "traefik.backend=dp-nginx"
-            - "traefik.frontend.rule=Host:beta.delivery-parts.ru"
-            - "traefik.port=8001"
-            - "traefik.protocol=http"
 
     dp-php:
         image: deliverypartsru/dp-php
@@ -42,21 +29,3 @@ services:
         restart: always
         ports:
             - "9001:9001"
-        networks:
-            - dp-internal
-        labels:
-            - "traefik.enable=false"
-
-    dp-traefik:
-        image: deliverypartsru/dp-traefik
-        container_name: dp-traefik
-        restart: always
-        ports:
-            - "8080:8080"
-            - "80:80"
-            - "443:443"
-        networks:
-            - dp-internal
-            - dp-proxy
-        labels:
-            - "traefik.enable=false"
