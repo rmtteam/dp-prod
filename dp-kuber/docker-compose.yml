@@ -19,9 +19,7 @@ services:
         ports: 
             - "9000:9000"
         networks:
-            - dp-internal
-        labels:
-            - "traefik.enable=false"            
+            - dp-internal         
 
     dp-worker:
         image: deliverypartsru/dp-worker
