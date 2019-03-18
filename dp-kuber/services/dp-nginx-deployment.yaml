@@ -33,4 +33,6 @@ spec:
       - name: dp-data
         persistentVolumeClaim:
           claimName: dp-data
+      - name: dp-nginx-www
+          configMap: dp-nginx-www
 status: {}
