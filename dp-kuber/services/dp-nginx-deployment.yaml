@@ -26,13 +26,16 @@ spec:
         - containerPort: 8001
         resources: {}
         volumeMounts:
-        - mountPath: /mnt/dp-data
-          name: dp-data
+        - name: dp-data
+          mountPath: /mnt/dp-data
+        - name: dp-nginx-www
+          mountPath: /etc/nginx/conf.d/www.conf
       restartPolicy: Always
       volumes:
       - name: dp-data
         persistentVolumeClaim:
           claimName: dp-data
       - name: dp-nginx-www
-          configMap: dp-nginx-www
+        configMap:
+            name: dp-nginx-www
 status: {}
