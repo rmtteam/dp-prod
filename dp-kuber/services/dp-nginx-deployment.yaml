@@ -30,6 +30,7 @@ spec:
           mountPath: /mnt/dp-data
         - name: dp-nginx-www
           mountPath: /etc/nginx/conf.d/www.conf
+          subPath : www.conf
       restartPolicy: Always
       volumes:
       - name: dp-data
