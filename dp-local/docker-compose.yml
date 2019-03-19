@@ -37,7 +37,7 @@ services:
         restart: always
         image: dp-php
         restart: always
-        ports: 
+        ports:
             - "9000:9000"
         volumes:
             - ../dp-data/var/www:/var/www:rw
@@ -45,7 +45,7 @@ services:
         networks:
             - dp-internal
         labels:
-            - "traefik.enable=false"            
+            - "traefik.enable=false"
 
     dp-worker:
         build: ./images/worker

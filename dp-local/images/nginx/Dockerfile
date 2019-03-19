@@ -4,4 +4,10 @@ LABEL name="DP Nginx" \
     vendor="delivery-parts.ru" \
     version="1.0"
 
+RUN export DEBIAN_FRONTEND=noninteractive \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        git \
+        nano \
+
 EXPOSE 9000
