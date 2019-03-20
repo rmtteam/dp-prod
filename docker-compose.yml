@@ -16,9 +16,9 @@ services:
         ports:
             - "8001:8001"
         volumes:
-            - ../dp-data/etc/nginx/conf.d:/etc/nginx/conf.d
-            - ../dp-data/var/www:/var/www:rw
-            - ../dp-data/var/log/nginx:/var/log/nginx:rw
+            - /dp-data/etc/nginx/conf.d:/etc/nginx/conf.d
+            - /dp-data/var/www:/var/www:rw
+            - /dp-data/var/log/nginx:/var/log/nginx:rw
         links:
             - dp-php
         networks:
@@ -40,8 +40,8 @@ services:
         ports:
             - "9000:9000"
         volumes:
-            - ../dp-data/var/www:/var/www:rw
-            - ../dp-data/var/log/php-fpm/dp-php:/var/log:rw
+            - /dp-data/var/www:/var/www:rw
+            - /dp-data/var/log/php-fpm/dp-php:/var/log:rw
         networks:
             - dp-internal
         labels:
@@ -56,9 +56,9 @@ services:
         ports:
             - "9001:9001"
         volumes:
-            - ../dp-data/var/www:/var/www:rw
-            - ../dp-data/var/log/supervisor:/var/log/supervisor:rw
-            - ../dp-data/etc/supervisor:/etc/supervisor
+            - /dp-data/var/www:/var/www:rw
+            - /dp-data/var/log/supervisor:/var/log/supervisor:rw
+            - /dp-data/etc/supervisor:/etc/supervisor
         networks:
             - dp-internal
         labels:
@@ -74,7 +74,7 @@ services:
             - "80:80"
             - "443:443"
         volumes:
-            - ../dp-data/etc/traefik:/etc/traefik:rw
+            - /dp-data/etc/traefik:/etc/traefik:rw
             - /var/run/docker.sock:/var/run/docker.sock
         networks:
             - dp-internal
