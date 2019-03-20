@@ -3,7 +3,7 @@ FROM php:7.2-cli-stretch
 
 LABEL name="DP Worker" \
     vendor="delivery-parts.ru" \
-    version="1.0"
+    version="1.1"
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
