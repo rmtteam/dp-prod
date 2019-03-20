@@ -1,8 +1,7 @@
 FROM php:7.2-fpm
 
 LABEL name="DP PHP" \
-    vendor="delivery-parts.ru" \
-    version="1.0"
+    vendor="delivery-parts.ru"
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
