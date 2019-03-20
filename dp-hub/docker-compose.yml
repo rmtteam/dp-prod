@@ -8,7 +8,7 @@ networks:
 
 services:
     dp-nginx:
-        image: deliverypartsru/dp-nginx
+        image: deliverypartsru/dp-nginx:1.3.20
         container_name: dp-nginx
         restart: always
         ports:
@@ -30,10 +30,10 @@ services:
             - "traefik.protocol=http"
 
     dp-php:
-        image: deliverypartsru/dp-php
+        image: deliverypartsru/dp-php:1.3.20
         container_name: dp-php
         restart: always
-        ports: 
+        ports:
             - "9000:9000"
         volumes:
             - ../dp-data/var/www:/var/www:rw
@@ -41,10 +41,10 @@ services:
         networks:
             - dp-internal
         labels:
-            - "traefik.enable=false"            
+            - "traefik.enable=false"
 
     dp-worker:
-        image: deliverypartsru/dp-worker
+        image: deliverypartsru/dp-worker:1.3.20
         container_name: dp-worker
         restart: always
         ports:
@@ -59,7 +59,7 @@ services:
             - "traefik.enable=false"
 
     dp-traefik:
-        image: deliverypartsru/dp-traefik
+        image: deliverypartsru/dp-traefik:1.3.20
         container_name: dp-traefik
         restart: always
         ports:
