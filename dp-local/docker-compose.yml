@@ -11,7 +11,7 @@ services:
         build: ./images/nginx
         container_name: dp-nginx
         restart: always
-        image: dp-nginx:1.3.20.1
+        image: dp-nginx:1.3.21.1
         restart: always
         ports:
             - "8001:8001"
@@ -35,7 +35,7 @@ services:
         build: ./images/php-fpm
         container_name: dp-php
         restart: always
-        image: dp-php:1.3.20.1
+        image: dp-php:1.3.21.1
         restart: always
         ports:
             - "9000:9000"
@@ -51,7 +51,7 @@ services:
         build: ./images/worker
         container_name: dp-worker
         restart: always
-        image: dp-worker:1.3.20.1
+        image: dp-worker:1.3.21.1
         restart: always
         ports:
             - "9001:9001"
@@ -68,7 +68,7 @@ services:
         build: ./images/traefik
         container_name: dp-traefik
         restart: always
-        image: dp-traefik:1.3.20.1
+        image: dp-traefik:1.3.21.1
         ports:
             - "8080:8080"
             - "80:80"
