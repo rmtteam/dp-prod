@@ -33,6 +33,9 @@ spec:
         - name: dp-supervisord-worker
           mountPath: /etc/supervisor/conf.d/dp-worker.conf
           subPath : dp-worker.conf
+        - name: dp-supervisord-worker
+          mountPath: /etc/supervisor/conf.d/dp-queue.conf
+          subPath : dp-queue.conf
       restartPolicy: Always
       volumes:
       - name: dp-data
@@ -44,4 +47,7 @@ spec:
       - name: dp-supervisord-worker
         configMap:
           name: dp-supervisord-worker
+      - name: dp-supervisord-queue
+        configMap:
+          name: dp-supervisord-queue
 status: {}
