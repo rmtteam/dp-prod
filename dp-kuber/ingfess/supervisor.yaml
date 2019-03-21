@@ -9,5 +9,5 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: dp-supervisor-wm
+          serviceName: dp-worker
           servicePort: 9001
