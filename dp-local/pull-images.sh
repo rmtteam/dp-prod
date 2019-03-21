@@ -11,8 +11,7 @@ docker rmi -f $(docker images -q)
 echo "All removed"
 
 docker login
-docker-compose build
-docker-compose create
+docker-compose up --build --no-start
 docker commit dp-nginx deliverypartsru/dp-nginx:1.3.21.1 && docker push deliverypartsru/dp-nginx:1.3.21.1
 docker commit dp-php deliverypartsru/dp-php:1.3.21.1 && docker push deliverypartsru/dp-php:1.3.21.1
 docker commit dp-worker deliverypartsru/dp-worker:1.3.21.1 && docker push deliverypartsru/dp-worker:1.3.21.1
