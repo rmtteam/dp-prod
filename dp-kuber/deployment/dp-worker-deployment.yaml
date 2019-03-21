@@ -27,15 +27,19 @@ spec:
         volumeMounts:
         - name: dp-data
           mountPath: /mnt/dp-data
+
         - name: dp-supervisord
           mountPath: /etc/supervisor/supervisord.conf
           subPath : supervisord.conf
+
         - name: dp-supervisord-worker
           mountPath: /etc/supervisor/conf.d/dp-worker.conf
           subPath : dp-worker.conf
-        - name: dp-supervisord-worker
+
+        - name: dp-supervisord-queue
           mountPath: /etc/supervisor/conf.d/dp-queue.conf
           subPath : dp-queue.conf
+          
       restartPolicy: Always
       volumes:
       - name: dp-data
