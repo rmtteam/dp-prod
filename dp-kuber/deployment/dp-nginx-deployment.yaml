@@ -20,7 +20,7 @@ spec:
         io.kompose.service: dp-nginx
     spec:
       containers:
-      - image: deliverypartsru/dp-nginx:1.3.21.1
+      - image: deliverypartsru/dp-nginx:1.3.22.1
         name: dp-nginx
         ports:
         - containerPort: 8001
