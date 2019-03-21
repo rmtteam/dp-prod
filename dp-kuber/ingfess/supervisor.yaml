@@ -5,7 +5,7 @@ metadata:
   namespace: dp-prod
 spec:
   rules:
-  - host: beta.delivery-parts.ru
+  - host: swm.beta.delivery-parts.ru
     http:
       paths:
       - backend:
