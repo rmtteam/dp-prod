@@ -42,6 +42,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         git \
         nano \
         ca-certificates \
+        wget \
     && apt-get clean
 
 # Image Magic
