@@ -2,7 +2,7 @@ FROM php:7.2-fpm
 FROM php:7.2-cli-stretch
 
 LABEL name="DP Worker" \
-    vendor="delivery-parts.ru" \
+    vendor="delivery-parts.ru"
 
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
