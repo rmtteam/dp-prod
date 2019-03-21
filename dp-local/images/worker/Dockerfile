@@ -39,6 +39,9 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         librabbitmq-dev \
         htop \
         mc \
+        git \
+        nano \
+        ca-certificates \
     && apt-get clean
 
 # Image Magic

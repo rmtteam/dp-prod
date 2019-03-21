@@ -26,6 +26,9 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         libmagickwand-dev \
         imagemagick \
         librabbitmq-dev \
+        git \
+        nano \
+        ca-certificates \
     && apt-get clean
 
 # Image Magic
