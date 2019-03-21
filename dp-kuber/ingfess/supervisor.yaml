@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dp-supervisor-wm
+  namespace: dp-prod
+spec:
+  rules:
+  - host: beta.delivery-parts.ru
+    http:
+      paths:
+      - backend:
+          serviceName: dp-supervisor-wm
+          servicePort: 9001
