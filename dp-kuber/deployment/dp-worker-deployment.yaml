@@ -25,11 +25,21 @@ spec:
         - containerPort: 9001
         resources: {}
         volumeMounts:
-        - mountPath: /mnt/dp-data
-          name: dp-data
+        - name: dp-data
+          mountPath: /mnt/dp-data
+        - name: dp-supervisord
+          mountPath: /etc/supervisor/supervisord.conf
+        - name: dp-supervisord-worker
+          mountPath: /etc/supervisor/conf.d/dp-worker.conf
       restartPolicy: Always
       volumes:
       - name: dp-data
         persistentVolumeClaim:
           claimName: dp-data
+      - name: dp-supervisord
+        configMap:
+          name: dp-supervisord
+      - name: dp-supervisord-worker
+        configMap:
+          name: dp-supervisord-worker
 status: {}

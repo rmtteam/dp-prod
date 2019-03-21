@@ -32,4 +32,5 @@ spec:
       - name: dp-data
         persistentVolumeClaim:
           claimName: dp-data
+
 status: {}
