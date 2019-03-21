@@ -29,8 +29,10 @@ spec:
           mountPath: /mnt/dp-data
         - name: dp-supervisord
           mountPath: /etc/supervisor/supervisord.conf
+          subPath : dp-worker.conf
         - name: dp-supervisord-worker
           mountPath: /etc/supervisor/conf.d/dp-worker.conf
+          subPath : dp-worker.conf
       restartPolicy: Always
       volumes:
       - name: dp-data
