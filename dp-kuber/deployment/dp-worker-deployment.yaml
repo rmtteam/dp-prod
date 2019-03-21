@@ -19,7 +19,7 @@ spec:
         io.kompose.service: dp-worker
     spec:
       containers:
-      - image: deliverypartsru/dp-worker:1.3.20
+      - image: deliverypartsru/dp-worker:1.3.21.1
         name: dp-worker
         ports:
         - containerPort: 9001
