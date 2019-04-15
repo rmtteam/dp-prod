@@ -12,5 +12,3 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         wget \
         ssh-client \
     && apt-get clean
-
-EXPOSE 9000
