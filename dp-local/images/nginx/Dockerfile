@@ -10,6 +10,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         nano \
         ca-certificates \
         wget \
+        ssh-client \
     && apt-get clean
 
 EXPOSE 9000
