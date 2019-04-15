@@ -11,3 +11,9 @@ spec:
       - backend:
           serviceName: dp-nginx
           servicePort: 8001
+  - host: api.beta.delivery-parts.ru
+    http:
+      paths:
+      - backend:
+          serviceName: dp-nginx
+          servicePort: 8001
