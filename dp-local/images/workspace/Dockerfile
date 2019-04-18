@@ -30,6 +30,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         nano \
         ca-certificates \
         wget \
+        ssh-client \
+        iputils-ping \
     && apt-get clean
 
 # Image Magic
@@ -66,6 +68,3 @@ RUN docker-php-ext-install pdo_mysql \
     && docker-php-ext-configure intl \
     && docker-php-ext-install opcache \
     && docker-php-ext-install intl
-
-#PHP-FPM port
-EXPOSE 9000

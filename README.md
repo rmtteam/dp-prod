@@ -1,6 +1,7 @@
 # dp-prod
 
-pull-images.sh - скрипт сборки images и публикации их в docker hub
+dp-local\pull-images.sh - скрипт сборки images и публикации их в docker hub
+dp-kuber\update-deployment.sh
 
 После git pull на хостовой тачке надо сделать
 

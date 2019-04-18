@@ -7,7 +7,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
         git \
-        nano \
         ca-certificates \
         wget \
         ssh-client \
