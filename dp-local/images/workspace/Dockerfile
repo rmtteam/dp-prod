@@ -32,6 +32,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         wget \
         ssh-client \
         iputils-ping \
+        composer \
     && apt-get clean
 
 # Image Magic
