@@ -88,8 +88,6 @@ services:
         restart: always
         image: dp-workspace
         restart: always
-        ports:
-            - "8001:8001"
         volumes:
             - ../dp-data/var/www:/var/www:rw
         networks:
