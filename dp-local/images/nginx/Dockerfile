@@ -1,5 +1,4 @@
 FROM nginx:1.15.8
-FROM composer
 
 LABEL name="DP Nginx" \
     vendor="delivery-parts.ru"
