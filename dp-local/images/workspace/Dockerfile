@@ -7,6 +7,7 @@ LABEL name="DP PHP" \
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
+        ssh-client \
         curl \
         libmemcached-dev \
         libz-dev \
