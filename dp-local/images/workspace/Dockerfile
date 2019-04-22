@@ -1,4 +1,5 @@
 FROM php:7.2-fpm
+FROM composer
 
 LABEL name="DP PHP" \
     vendor="delivery-parts.ru"
@@ -32,7 +33,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         wget \
         ssh-client \
         iputils-ping \
-        composer \
     && apt-get clean
 
 # Image Magic
