@@ -12,7 +12,6 @@ services:
         container_name: dp-nginx
         restart: always
         image: dp-nginx
-        restart: always
         ports:
             - "8001:8001"
         volumes:
@@ -34,7 +33,6 @@ services:
     dp-php:
         build: ./images/php-fpm
         container_name: dp-php
-        restart: always
         image: dp-php
         restart: always
         ports:
@@ -52,7 +50,6 @@ services:
         container_name: dp-worker
         restart: always
         image: dp-worker
-        restart: always
         ports:
             - "9001:9001"
         volumes:
@@ -87,6 +84,17 @@ services:
         container_name: dp-workspace
         restart: always
         image: dp-workspace
+        volumes:
+            - ../dp-data/var/www:/var/www:rw
+        networks:
+            - dp-internal
+        labels:
+            - "traefik.enable=false"
+
+    dp-composer:
+        build: ./images/composer
+        container_name: dp-composer
+        image: dp-composer
         restart: always
         volumes:
             - ../dp-data/var/www:/var/www:rw
