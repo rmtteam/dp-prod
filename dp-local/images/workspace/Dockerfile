@@ -1,6 +1,6 @@
 FROM php:7.2-fpm
 
-LABEL name="DP PHP" \
+LABEL name="DP Workspace" \
     vendor="delivery-parts.ru"
 
 RUN export DEBIAN_FRONTEND=noninteractive \
