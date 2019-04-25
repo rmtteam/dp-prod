@@ -69,5 +69,3 @@ RUN docker-php-ext-install pdo_mysql \
     && docker-php-ext-configure intl \
     && docker-php-ext-install opcache \
     && docker-php-ext-install intl
-
-FROM composer:1.8.5
