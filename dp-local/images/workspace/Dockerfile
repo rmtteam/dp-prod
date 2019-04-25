@@ -69,3 +69,6 @@ RUN docker-php-ext-install pdo_mysql \
     && docker-php-ext-configure intl \
     && docker-php-ext-install opcache \
     && docker-php-ext-install intl
+
+# Composer
+RUN curl --silent --show-error https://getcomposer.org/installer | php

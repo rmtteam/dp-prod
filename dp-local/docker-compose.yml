@@ -91,14 +91,14 @@ services:
         labels:
             - "traefik.enable=false"
 
-    dp-composer:
-        build: ./images/composer
-        container_name: dp-composer
-        image: dp-composer
-        restart: always
-        volumes:
-            - ../dp-data/var/www:/var/www:rw
-        networks:
-            - dp-internal
-        labels:
-            - "traefik.enable=false"
+    #dp-composer:
+    #    build: ./images/composer
+    #    container_name: dp-composer
+    #    image: dp-composer
+    #    restart: always
+    #    volumes:
+    #        - ../dp-data/var/www:/var/www:rw
+    #    networks:
+    #        - dp-internal
+    #    labels:
+    #        - "traefik.enable=false"
