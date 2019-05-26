@@ -82,4 +82,4 @@ RUN docker-php-ext-install pdo_mysql \
     && docker-php-ext-install intl
 
 #Supervisor Web UI
-EXPOSE 9001
+#EXPOSE 9001
