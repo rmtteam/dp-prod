@@ -7,7 +7,7 @@ LABEL name="DP Worker" \
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-        supervisor \
+        #supervisor \
     && apt-get clean
 
 #CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
