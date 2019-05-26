@@ -79,7 +79,7 @@ RUN docker-php-ext-install pdo_mysql \
     && docker-php-ext-install opcache \
     && docker-php-ext-install intl
 
-CMD ["php", "/var/www/dp/htdocs/public/info.php queue:work --queue=parsing --tries=3 --daemon --sleep"]
+CMD ["php", "./var/www/dp/htdocs/public/info.php queue:work --queue=parsing --tries=3 --daemon --sleep"]
 
 #Supervisor Web UI
 #EXPOSE 9001
