@@ -12,8 +12,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
 
 #CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
 
-CMD [php /var/www/dp/htdocs/public/info.php queue:work --queue=parsing --tries=3 --daemon --sleep]
-
 #PHP-FPM
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
@@ -80,6 +78,8 @@ RUN docker-php-ext-install pdo_mysql \
     && docker-php-ext-configure intl \
     && docker-php-ext-install opcache \
     && docker-php-ext-install intl
+
+CMD ["php", "/var/www/dp/htdocs/public/info.php queue:work --queue=parsing --tries=3 --daemon --sleep"]
 
 #Supervisor Web UI
 #EXPOSE 9001
