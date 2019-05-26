@@ -7,10 +7,10 @@ LABEL name="DP Worker" \
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-        #supervisor \
-    && apt-get clean
+        supervisor \
+    &&apt-get clean
 
-#CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
 
 #PHP-FPM
 RUN export DEBIAN_FRONTEND=noninteractive \
@@ -79,7 +79,5 @@ RUN docker-php-ext-install pdo_mysql \
     && docker-php-ext-install opcache \
     && docker-php-ext-install intl
 
-CMD ["php", "./var/www/dp/htdocs/public/info.php queue:work --queue=parsing --tries=3 --daemon --sleep"]
-
 #Supervisor Web UI
-#EXPOSE 9001
+EXPOSE 9001
