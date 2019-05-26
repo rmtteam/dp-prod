@@ -10,7 +10,9 @@ RUN export DEBIAN_FRONTEND=noninteractive \
         supervisor \
     && apt-get clean
 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+#CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+
+CMD [php /var/www/dp/htdocs/public/info.php queue:work --queue=parsing --tries=3 --daemon --sleep]
 
 #PHP-FPM
 RUN export DEBIAN_FRONTEND=noninteractive \
