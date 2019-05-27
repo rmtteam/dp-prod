@@ -9,5 +9,12 @@ metadata:
   labels:
     io.kompose.service: dp-workspace
   name: dp-workspace
+spec:
+  ports:
+  - name: "9001"
+    port: 9001
+    targetPort: 9001
+  selector:
+    io.kompose.service: dp-worker
 status:
   loadBalancer: {}
