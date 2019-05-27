@@ -61,23 +61,23 @@ services:
         labels:
             - "traefik.enable=false"
 
-    dp-traefik:
-        build: ./images/traefik
-        container_name: dp-traefik
-        restart: always
-        image: dp-traefik
-        ports:
-            - "8080:8080"
-            - "80:80"
-            - "443:443"
-        volumes:
-            - ../dp-data/etc/traefik:/etc/traefik:rw
-            - /var/run/docker.sock:/var/run/docker.sock
-        networks:
-            - dp-internal
-            - dp-proxy
-        labels:
-            - "traefik.enable=false"
+    #dp-traefik:
+    #    build: ./images/traefik
+    #    container_name: dp-traefik
+    #    restart: always
+    #    image: dp-traefik
+    #    ports:
+    #        - "8080:8080"
+    #        - "80:80"
+    #        - "443:443"
+    #    volumes:
+    #        - ../dp-data/etc/traefik:/etc/traefik:rw
+    #        - /var/run/docker.sock:/var/run/docker.sock
+    #    networks:
+    #        - dp-internal
+    #        - dp-proxy
+    #    labels:
+    #        - "traefik.enable=false"
 
     dp-workspace:
         build: ./images/workspace
