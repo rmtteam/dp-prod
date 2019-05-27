@@ -9,8 +9,5 @@ metadata:
   labels:
     io.kompose.service: dp-workspace
   name: dp-workspace
-spec:
-  selector:
-    io.kompose.service: dp-workspace
 status:
   loadBalancer: {}
