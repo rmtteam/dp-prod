@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: dp-prod
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: dp-workspace
+  name: dp-workspace
+spec:
+  selector:
+    io.kompose.service: dp-workspace
+status:
+  loadBalancer: {}

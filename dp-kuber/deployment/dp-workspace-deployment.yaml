@@ -7,37 +7,28 @@ metadata:
     kompose.version: 1.16.0 (0c01309)
   creationTimestamp: null
   labels:
-    io.kompose.service: dp-nginx
-  name: dp-nginx
+    io.kompose.service: dp-workspace
+  name: dp-workspace
 spec:
-  replicas: 1
-  strategy:
-    type: Recreate
+  replicas: 3
+  strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: dp-nginx
+        io.kompose.service: dp-workspace
     spec:
       containers:
-      - image: deliverypartsru/dp-nginx:latest
-        imagePullPolicy: Always
-        name: dp-nginx
-        ports:
-        - containerPort: 8001
+      - image: deliverypartsru/dp-workspace:latest
+        name: dp-workspace
         resources: {}
         volumeMounts:
         - name: dp-data
           mountPath: /mnt/dp-data
-        - name: dp-nginx-www
-          mountPath: /etc/nginx/conf.d/www.conf
-          subPath : www.conf
+
       restartPolicy: Always
       volumes:
       - name: dp-data
         persistentVolumeClaim:
           claimName: dp-data
-      - name: dp-nginx-www
-        configMap:
-          name: dp-nginx-www
 status: {}

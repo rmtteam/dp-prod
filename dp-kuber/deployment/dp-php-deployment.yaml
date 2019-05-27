@@ -19,7 +19,7 @@ spec:
         io.kompose.service: dp-php
     spec:
       containers:
-      - image: deliverypartsru/dp-php:1.3.22.1
+      - image: deliverypartsru/dp-php:latest
         name: dp-php
         ports:
         - containerPort: 9000
