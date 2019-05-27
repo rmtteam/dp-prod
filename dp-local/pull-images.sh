@@ -16,5 +16,5 @@ docker commit dp-nginx deliverypartsru/dp-nginx && docker push deliverypartsru/d
 docker commit dp-php deliverypartsru/dp-php && docker push deliverypartsru/dp-php
 docker commit dp-worker deliverypartsru/dp-worker && docker push deliverypartsru/dp-worker
 docker commit dp-worker deliverypartsru/dp-workspace && docker push deliverypartsru/dp-workspace
-docker commit dp-traefik deliverypartsru/dp-traefik && docker push deliverypartsru/dp-traefik
+#docker commit dp-traefik deliverypartsru/dp-traefik && docker push deliverypartsru/dp-traefik
 echo "Images has been pushed on hub"
