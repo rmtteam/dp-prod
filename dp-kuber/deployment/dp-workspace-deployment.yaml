@@ -10,7 +10,7 @@ metadata:
     io.kompose.service: dp-workspace
   name: dp-workspace
 spec:
-  replicas: 3
+  replicas: 1
   strategy: {}
   template:
     metadata:
